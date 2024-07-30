@@ -12,16 +12,6 @@ you to easily add, edit, delete, and toggle entries in the hosts file without ma
 - **Delete** entries.
 - Open the hosts file in **vim** for manual editing.
 
-## Installation
-
-To install Hosts Editor, simply download the binary/executable and place it in your system's PATH. Alternatively, you
-can compile it from the source code.
-
-```bash
-# Example for installing the executable
-sudo cp hosts /usr/local/bin/
-```
-
 ## Usage
 
 The general syntax for using Hosts Editor is:
