@@ -1,0 +1,31 @@
+#! /usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'colorize'
+
+require_relative './get_help'
+require_relative './list_entries'
+require_relative './new_item'
+require_relative './delete_entry'
+require_relative './toggle_entry'
+require_relative './edit_entry'
+require_relative './config'
+
+command = ARGV[0]
+
+unless command
+  puts 'Error, use hosts --help to ge help message'.colorize(:red)
+  exit
+end
+
+render_help if ['--help', '-h'].include?(command)
+list_entries if ['list'].include?(command)
+create_entry if ['create'].include?(command)
+toggle_entry if ['toggle'].include?(command)
+edit_entry if ['edit'].include?(command)
+delete_entry if ['delete'].include?(command)
+exec "vim #{HOST_FILE_PATH}" if ['vim'].include?(command)
+
+exec 'fastfetch' if ['sysinfo'].include?(command)
+
+puts 'Unknown command, use hosts --help to ge help message'.colorize(:red)
